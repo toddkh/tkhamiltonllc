@@ -1,0 +1,555 @@
+---
+import profile from '../assets/todd-profile.jpg';
+---
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+	<a class="brand-mark" href="#top">TK Hamilton LLC</a>
+	<nav aria-label="Primary">
+		<a href="#philosophy">Philosophy</a>
+		<a href="#skills">Skills</a>
+		<a href="#contact">Contact</a>
+	</nav>
+</header>
+
+<main id="main">
+	<section id="top" class="hero" aria-label="Introduction">
+		<div class="hero-visual" aria-hidden="true">
+			<img
+				src={profile.src}
+				width={profile.width}
+				height={profile.height}
+				alt=""
+				fetchpriority="high"
+				class="hero-photo"
+			/>
+			<div class="hero-veil"></div>
+		</div>
+
+		<div class="hero-copy">
+			<p class="eyebrow animate" style="--d: 0s">TK Hamilton LLC</p>
+			<h1 class="animate" style="--d: 0.08s">Todd Hamilton</h1>
+			<p class="role animate" style="--d: 0.16s">Technology Strategy & WordPress Specialist</p>
+			<p class="lede animate" style="--d: 0.24s">
+				Lifelong technology experience in Technology Strategy, Product Management, Front End
+				Development, Teaching, training and recently AI strategy, Agentic Pipeline development,
+				implementation and training.
+			</p>
+			<div class="hero-actions animate" style="--d: 0.32s">
+				<a class="btn" href="#contact">Get In Touch</a>
+				<a class="btn-ghost" href="#skills">View Experience</a>
+			</div>
+			<address class="biz animate" style="--d: 0.4s">
+				<strong>TK Hamilton LLC</strong>
+				<span>819 24th Ave N</span>
+				<span>St Petersburg, FL 33704</span>
+				<a href="mailto:todd@tkhamilton.com">todd@tkhamilton.com</a>
+			</address>
+		</div>
+	</section>
+
+	<section id="philosophy" class="section philosophy reveal">
+		<div class="section-inner">
+			<h2>Philosophy & Mission</h2>
+			<div class="prose">
+				<p>
+					I believe in creating technology solutions that are not just functional, but
+					transformative. My approach combines strategic thinking with hands-on technical expertise
+					to deliver results that drive business growth.
+				</p>
+				<p>
+					I help businesses leverage technology to achieve their goals through custom development,
+					strategic consulting, and comprehensive project management.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section id="skills" class="section skills reveal">
+		<div class="section-inner">
+			<h2>Technical Skills</h2>
+			<div class="skills-grid">
+				<div>
+					<h3>Core Technologies</h3>
+					<ul>
+						<li>AI - Anthropic, Claude, Cursor, Kiro, CrewAI and more</li>
+						<li>Development - React, JS, TypeScript, Ruby, HTML, CSS, SASS and more</li>
+						<li>Custom WordPress - Build anything</li>
+					</ul>
+				</div>
+				<div>
+					<h3>Tools & Platforms</h3>
+					<ul>
+						<li>Development - Node, NPM, Yarn, Bun, Grunt, Gulp and more</li>
+						<li>Infrastructure - AWS, Google Cloud, DigitalOcean, Fly, Heroku and more</li>
+						<li>WordPress - All aspects, traditional to headless, customizations and more</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact" class="section contact reveal">
+		<div class="section-inner">
+			<h2>Get In Touch</h2>
+			<p class="contact-lede">
+				Ready to discuss your next project? Let's talk about how I can help bring your vision to
+				life.
+			</p>
+
+			<div class="contact-rows">
+				<div>
+					<h3>Email</h3>
+					<a href="mailto:todd@tkhamilton.com">todd@tkhamilton.com</a>
+				</div>
+				<div>
+					<h3>Location</h3>
+					<p>St Petersburg, FL</p>
+				</div>
+				<div>
+					<h3>Services</h3>
+					<ul>
+						<li>Agentic AI consultation, strategy, training and implementation</li>
+						<li>Application Development, product strategy, development and implementation</li>
+						<li>WordPress strategy, development and scaling</li>
+					</ul>
+				</div>
+			</div>
+
+			<a class="btn btn-lg" href="mailto:todd@tkhamilton.com">Email Todd</a>
+		</div>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<p>&copy; {new Date().getFullYear()} TK Hamilton LLC. All rights reserved.</p>
+</footer>
+
+<style>
+	.skip {
+		position: absolute;
+		left: -9999px;
+		top: 0;
+		background: var(--accent);
+		color: #fff;
+		padding: 0.5rem 1rem;
+		z-index: 100;
+	}
+
+	.skip:focus {
+		left: 1rem;
+		top: 1rem;
+	}
+
+	.site-header {
+		position: fixed;
+		inset: 0 0 auto;
+		z-index: 50;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem var(--pad);
+		background: linear-gradient(to bottom, rgba(6, 16, 24, 0.92), rgba(6, 16, 24, 0));
+		pointer-events: none;
+	}
+
+	.site-header a {
+		pointer-events: auto;
+		text-decoration: none;
+	}
+
+	.brand-mark {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 0.95rem;
+		letter-spacing: 0.02em;
+		color: var(--ink);
+	}
+
+	.brand-mark:hover {
+		color: var(--accent-hot);
+	}
+
+	nav {
+		display: flex;
+		gap: clamp(0.75rem, 2vw, 1.75rem);
+	}
+
+	nav a {
+		color: var(--ink-muted);
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	nav a:hover {
+		color: var(--ink);
+	}
+
+	/* ——— Hero ——— */
+	.hero {
+		position: relative;
+		min-height: 100svh;
+		display: grid;
+		align-items: end;
+		overflow: hidden;
+	}
+
+	.hero-visual {
+		position: absolute;
+		z-index: 0;
+		/* Right panel — aspect closer to the portrait so the crop stays head-to-chest, not eyes-only */
+		inset: 0 0 0 auto;
+		width: min(52vw, 38rem);
+	}
+
+	.hero-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 12%;
+		transform: scale(1.02);
+		animation: ken 22s ease-in-out infinite alternate;
+	}
+
+	.hero-veil {
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(90deg, rgba(6, 16, 24, 1) 0%, rgba(6, 16, 24, 0.55) 28%, rgba(6, 16, 24, 0.12) 100%),
+			linear-gradient(180deg, rgba(6, 16, 24, 0.2) 0%, transparent 40%, rgba(6, 16, 24, 0.55) 100%);
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		background:
+			radial-gradient(ellipse 50% 70% at 85% 40%, rgba(112, 118, 158, 0.12), transparent 60%),
+			var(--bg);
+	}
+
+	.hero-copy {
+		position: relative;
+		z-index: 1;
+		max-width: 40rem;
+		padding: calc(5.5rem + env(safe-area-inset-top)) var(--pad) 3.5rem;
+	}
+
+	.eyebrow {
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--primary-soft);
+		margin-bottom: 0.85rem;
+	}
+
+	.hero h1 {
+		font-size: clamp(2.75rem, 8vw, 5.25rem);
+		font-weight: 800;
+		color: var(--ink);
+		margin-bottom: 0.55rem;
+	}
+
+	.role {
+		font-family: var(--font-display);
+		font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+		font-weight: 600;
+		color: var(--accent-hot);
+		margin-bottom: 1.25rem;
+	}
+
+	.lede {
+		color: var(--ink-muted);
+		font-size: clamp(1rem, 1.6vw, 1.125rem);
+		max-width: 36rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem 1rem;
+		margin-bottom: 2.25rem;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.85rem 1.4rem;
+		background: var(--accent);
+		color: #fff;
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		border: 1px solid transparent;
+		transition:
+			background 0.2s ease,
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.btn:hover {
+		background: var(--accent-hot);
+		color: #fff;
+		transform: translateY(-1px);
+		box-shadow: 0 10px 28px rgba(234, 88, 12, 0.28);
+	}
+
+	.btn-lg {
+		margin-top: 2rem;
+		padding: 1rem 1.75rem;
+	}
+
+	.btn-ghost {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.85rem 1.2rem;
+		color: var(--ink);
+		font-weight: 600;
+		font-size: 0.95rem;
+		text-decoration: none;
+		border-bottom: 1px solid var(--line);
+	}
+
+	.btn-ghost:hover {
+		color: var(--accent-hot);
+		border-bottom-color: var(--accent);
+	}
+
+	.biz {
+		font-style: normal;
+		display: grid;
+		gap: 0.15rem;
+		font-size: 0.92rem;
+		color: var(--ink-muted);
+		border-left: 3px solid var(--primary);
+		padding-left: 1rem;
+	}
+
+	.biz strong {
+		color: var(--ink);
+		font-weight: 600;
+	}
+
+	.biz a {
+		color: var(--primary-soft);
+		text-decoration: none;
+		margin-top: 0.25rem;
+	}
+
+	.biz a:hover {
+		color: var(--accent-hot);
+	}
+
+	/* ——— Sections ——— */
+	.section {
+		padding: clamp(4rem, 10vw, 7rem) var(--pad);
+		border-top: 1px solid var(--line);
+	}
+
+	.section-inner {
+		max-width: var(--max);
+		margin: 0 auto;
+	}
+
+	.section h2 {
+		font-family: var(--font-display);
+		font-size: clamp(1.85rem, 4vw, 2.75rem);
+		margin-bottom: 1.5rem;
+		max-width: 18ch;
+		color: var(--ink);
+	}
+
+	.prose {
+		display: grid;
+		gap: 1.15rem;
+		max-width: 42rem;
+		color: var(--ink-muted);
+		font-size: 1.125rem;
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+		gap: clamp(2rem, 5vw, 4rem);
+		margin-top: 0.5rem;
+	}
+
+	.skills-grid h3,
+	.contact-rows h3 {
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		font-weight: 700;
+		color: var(--ink);
+		margin-bottom: 1rem;
+	}
+
+	.skills-grid ul,
+	.contact-rows ul {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.skills-grid li,
+	.contact-rows li {
+		color: var(--ink-muted);
+		padding-left: 1rem;
+		position: relative;
+	}
+
+	.skills-grid li::before,
+	.contact-rows li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.65em;
+		width: 0.4rem;
+		height: 0.4rem;
+		background: var(--accent);
+	}
+
+	.contact-lede {
+		color: var(--ink-muted);
+		font-size: 1.125rem;
+		max-width: 34rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.contact-rows {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+		gap: clamp(1.75rem, 4vw, 3rem);
+	}
+
+	.contact-rows p {
+		color: var(--ink-muted);
+	}
+
+	.contact-rows a {
+		font-size: 1.05rem;
+		text-decoration: none;
+		color: var(--ink);
+		border-bottom: 1px solid var(--accent);
+	}
+
+	.contact-rows a:hover {
+		color: var(--accent-hot);
+	}
+
+	.site-footer {
+		padding: 2rem var(--pad) 2.5rem;
+		border-top: 1px solid var(--line);
+		color: var(--ink-muted);
+		font-size: 0.875rem;
+	}
+
+	.site-footer p {
+		max-width: var(--max);
+		margin: 0 auto;
+	}
+
+	/* ——— Motion ——— */
+	.animate {
+		opacity: 0;
+		transform: translateY(18px);
+		animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+		animation-delay: var(--d, 0s);
+	}
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(28px);
+		transition:
+			opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.reveal.is-in {
+		opacity: 1;
+		transform: none;
+	}
+
+	@keyframes rise {
+		to {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@keyframes ken {
+		to {
+			transform: scale(1.05) translate(-0.6%, 0.4%);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.animate,
+		.reveal,
+		.hero-photo {
+			animation: none !important;
+			transition: none !important;
+			opacity: 1;
+			transform: none;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero-visual {
+			inset: 0;
+			width: 100%;
+		}
+
+		.hero-photo {
+			object-fit: cover;
+			object-position: 58% 10%;
+			transform: none;
+			animation: none;
+			opacity: 0.42;
+		}
+
+		.hero-veil {
+			background:
+				linear-gradient(180deg, rgba(6, 16, 24, 0.55) 0%, rgba(6, 16, 24, 0.78) 48%, rgba(6, 16, 24, 0.98) 82%),
+				linear-gradient(90deg, rgba(6, 16, 24, 0.85) 0%, rgba(6, 16, 24, 0.4) 100%);
+		}
+	}
+
+	@media (max-width: 720px) {
+		nav a:not(:last-child) {
+			display: none;
+		}
+
+		.hero-copy {
+			padding-bottom: 2.5rem;
+		}
+
+		.biz {
+			margin-top: 0.5rem;
+		}
+	}
+</style>
+
+<script>
+	const reveals = document.querySelectorAll('.reveal');
+	if ('IntersectionObserver' in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const entry of entries) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-in');
+						io.unobserve(entry.target);
+					}
+				}
+			},
+			{ threshold: 0.15, rootMargin: '0px 0px -8% 0px' },
+		);
+		reveals.forEach((el) => io.observe(el));
+	} else {
+		reveals.forEach((el) => el.classList.add('is-in'));
+	}
+</script>

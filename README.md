@@ -1,46 +1,41 @@
-# Astro Starter Kit: Basics
+# TK Hamilton LLC
+
+Personal site for Todd Hamilton — Technology Strategy & WordPress Specialist.
+
+Built with [Astro](https://astro.build). Deployed on [Cloudflare Pages](https://pages.cloudflare.com).
+
+## Develop
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Build
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```sh
+npm run build
+npm run preview
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Requires Node.js 22+.
 
-## 🧞 Commands
+## Deploy (Cloudflare Pages)
 
-All commands are run from the root of the project, from a terminal:
+This is a static Astro site. No Cloudflare adapter is required.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Push this repo to GitHub.
+2. In the [Cloudflare dashboard](https://dash.cloudflare.com) → **Workers & Pages** → **Create** → **Pages** → **Import an existing Git repository**.
+3. Select this repo and use:
 
-## 👀 Want to learn more?
+| Setting | Value |
+| --- | --- |
+| Framework preset | Astro |
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Environment variable | `NODE_VERSION` = `22` |
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Every push to `main` deploys production. Pull requests get preview URLs automatically.
+
+Optional: attach a custom domain under the Pages project → **Custom domains**.
