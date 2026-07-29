@@ -42,8 +42,7 @@ import profile from '../assets/todd-profile.jpg';
 			</div>
 			<address class="biz animate" style="--d: 0.4s">
 				<strong>TK Hamilton LLC</strong>
-				<span>819 24th Ave N</span>
-				<span>St Petersburg, FL 33704</span>
+				<span>St Petersburg, FL</span>
 				<a href="mailto:todd@tkhamilton.com">todd@tkhamilton.com</a>
 			</address>
 		</div>
@@ -73,7 +72,7 @@ import profile from '../assets/todd-profile.jpg';
 				<div>
 					<h3>Core Technologies</h3>
 					<ul>
-						<li>AI - Anthropic, Claude, Cursor, Kiro, CrewAI and more</li>
+						<li>AI - Anthropic, Cursor, Kiro, CrewAI and more</li>
 						<li>Development - React, JS, TypeScript, Ruby, HTML, CSS, SASS and more</li>
 						<li>Custom WordPress - Build anything</li>
 					</ul>
@@ -83,7 +82,7 @@ import profile from '../assets/todd-profile.jpg';
 					<ul>
 						<li>Development - Node, NPM, Yarn, Bun, Grunt, Gulp and more</li>
 						<li>Infrastructure - AWS, Google Cloud, DigitalOcean, Fly, Heroku and more</li>
-						<li>WordPress - All aspects, traditional to headless, customizations and more</li>
+						<li>WordPress - 20+ years experience in all aspects, traditional to headless, customizations and more</li>
 					</ul>
 				</div>
 			</div>
@@ -199,9 +198,12 @@ import profile from '../assets/todd-profile.jpg';
 	.hero-visual {
 		position: absolute;
 		z-index: 0;
-		/* Right panel — aspect closer to the portrait so the crop stays head-to-chest, not eyes-only */
-		inset: 0 0 0 auto;
-		width: min(52vw, 38rem);
+		/* Right panel — same crop as before the soft-blend pass */
+		top: 0;
+		right: 0;
+		bottom: 0;
+		/* +2px tucks under the left fill so no hairline gutter shows */
+		width: min(calc(52vw + 2px), calc(38rem + 2px));
 	}
 
 	.hero-photo {
@@ -217,8 +219,10 @@ import profile from '../assets/todd-profile.jpg';
 		position: absolute;
 		inset: 0;
 		background:
-			linear-gradient(90deg, rgba(6, 16, 24, 1) 0%, rgba(6, 16, 24, 0.55) 28%, rgba(6, 16, 24, 0.12) 100%),
+			linear-gradient(90deg, var(--bg) 0, var(--bg) 3px, rgba(6, 16, 24, 0.55) 28%, rgba(6, 16, 24, 0.12) 100%),
 			linear-gradient(180deg, rgba(6, 16, 24, 0.2) 0%, transparent 40%, rgba(6, 16, 24, 0.55) 100%);
+		/* Seal left join against subpixel gaps */
+		box-shadow: -12px 0 18px 8px var(--bg);
 	}
 
 	.hero::before {
@@ -502,6 +506,7 @@ import profile from '../assets/todd-profile.jpg';
 		.hero-visual {
 			inset: 0;
 			width: 100%;
+			margin-left: 0;
 		}
 
 		.hero-photo {
