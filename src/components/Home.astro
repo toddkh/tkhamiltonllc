@@ -1,5 +1,57 @@
 ---
 import profile from '../assets/todd-profile.jpg';
+
+const experience = [
+	{
+		org: 'Fabrik',
+		href: 'https://fabrik.com',
+		dates: '2021–2026',
+		roles: 'Product strategist, client relationship lead, developer',
+		summary:
+			'Publishing platform with a bespoke, best-in-class CMS. Premier editing tools and article pages built for performance, accessibility, SEO, usability, and revenue.',
+	},
+	{
+		org: 'Roam Inc',
+		dates: '2018–2022',
+		roles: 'Product strategist, developer',
+		summary:
+			'Outdoor adventure storytelling — articles, films, and media from leading adventurers — on a full public platform. Originator of the Roam Awards, a video, photography, and story contest for top creative talent in adventure storytelling.',
+		outcome: 'Acquired by Outside magazine',
+	},
+	{
+		org: 'Distractify Inc',
+		href: 'https://www.distractify.com',
+		dates: '2016–2019',
+		roles: 'Product strategist, developer',
+		summary: 'Popular web publication reaching millions of readers daily.',
+	},
+	{
+		org: 'EventHero',
+		dates: '2013–2021',
+		roles: 'Product manager, developer, customer support, event facilitator',
+		summary: 'Attendee management, access control, and QR-code scanning for event spaces.',
+		outcome: 'First employee',
+	},
+	{
+		org: 'Bubbalon',
+		dates: '2009–2011',
+		roles: 'Founder',
+		summary:
+			'Sentiment-gathering startup: user-feedback technology and analytics for web organizations. Emoji-based reactions before they were commonplace.',
+	},
+	{
+		org: 'Penn-Hamilton Publishing',
+		roles: 'Founder, product strategist, developer',
+		summary: 'Publisher of niche-interest websites and ebooks.',
+		note: {
+			label: 'Notable client',
+			name: '300guitars.com',
+			href: 'https://300guitars.com',
+			detail:
+				'Leading niche guitar-tech site and a guitar-maintenance ebook that generated thousands of sales.',
+		},
+	},
+];
 ---
 
 <a class="skip" href="#main">Skip to content</a>
@@ -8,6 +60,7 @@ import profile from '../assets/todd-profile.jpg';
 	<a class="brand-mark" href="#top">TK Hamilton LLC</a>
 	<nav aria-label="Primary">
 		<a href="#philosophy">Philosophy</a>
+		<a href="#experience">Experience</a>
 		<a href="#skills">Skills</a>
 		<a href="#contact">Contact</a>
 	</nav>
@@ -38,7 +91,7 @@ import profile from '../assets/todd-profile.jpg';
 			</p>
 			<div class="hero-actions animate" style="--d: 0.32s">
 				<a class="btn" href="#contact">Get In Touch</a>
-				<a class="btn-ghost" href="#skills">View Experience</a>
+				<a class="btn-ghost" href="#experience">View Experience</a>
 			</div>
 			<address class="biz animate" style="--d: 0.4s">
 				<strong>TK Hamilton LLC</strong>
@@ -62,6 +115,71 @@ import profile from '../assets/todd-profile.jpg';
 					strategic consulting, and comprehensive project management.
 				</p>
 			</div>
+		</div>
+	</section>
+
+	<section id="experience" class="section experience reveal">
+		<div class="section-inner">
+			<h2>Experience</h2>
+			<p class="experience-lede">
+				Independent practice since 2004. Product strategy, publishing platforms, and companies
+				founded — the work behind 25 years of client outcomes.
+			</p>
+
+			<article class="practice">
+				<div class="practice-meta">
+					<p class="exp-dates">2004–Present</p>
+					<p class="exp-roles">Owner</p>
+				</div>
+				<div class="practice-body">
+					<h3>TK Hamilton LLC</h3>
+					<p>
+						Web development and consultation. Clients get the strategy, build, and follow-through
+						required for an optimal outcome.
+					</p>
+					<p class="exp-note">
+						<span class="exp-note-label">Notable client</span>
+						<a href="https://wildpath.com" target="_blank" rel="noopener noreferrer">Wildpath.com</a>
+						— wildlife storytelling documenting the Florida Wildlife Corridor, the animals that
+						migrate along it, and the impact of development.
+					</p>
+				</div>
+			</article>
+
+			<ol class="exp-list">
+				{
+					experience.map((item) => (
+						<li class="exp-item">
+							<div class="exp-meta">
+								{item.dates ? <p class="exp-dates">{item.dates}</p> : null}
+								<p class="exp-roles">{item.roles}</p>
+							</div>
+							<div class="exp-body">
+								<h3>
+									{item.href ? (
+										<a href={item.href} target="_blank" rel="noopener noreferrer">
+											{item.org}
+										</a>
+									) : (
+										item.org
+									)}
+								</h3>
+								<p>{item.summary}</p>
+								{item.outcome ? <p class="exp-outcome">{item.outcome}</p> : null}
+								{item.note ? (
+									<p class="exp-note">
+										<span class="exp-note-label">{item.note.label}</span>
+										<a href={item.note.href} target="_blank" rel="noopener noreferrer">
+											{item.note.name}
+										</a>
+										— {item.note.detail}
+									</p>
+								) : null}
+							</div>
+						</li>
+					))
+				}
+			</ol>
 		</div>
 	</section>
 
@@ -377,6 +495,119 @@ import profile from '../assets/todd-profile.jpg';
 		font-size: 1.125rem;
 	}
 
+	.experience-lede {
+		color: var(--ink-muted);
+		font-size: 1.125rem;
+		max-width: 40rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.practice {
+		display: grid;
+		grid-template-columns: 11rem 1fr;
+		gap: 1.25rem 2rem;
+		padding: 1.75rem 0 1.75rem 1.35rem;
+		margin-bottom: 2.25rem;
+		border-left: 3px solid var(--primary);
+		background: linear-gradient(90deg, rgba(112, 118, 158, 0.08), transparent 55%);
+	}
+
+	.exp-list {
+		display: grid;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--line);
+	}
+
+	.exp-item {
+		display: grid;
+		grid-template-columns: 11rem 1fr;
+		gap: 1.25rem 2rem;
+		padding: 1.75rem 0 1.75rem 1.35rem;
+		border-bottom: 1px solid var(--line);
+		position: relative;
+	}
+
+	.exp-item::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 2.15rem;
+		width: 0.4rem;
+		height: 0.4rem;
+		background: var(--accent);
+	}
+
+	.exp-dates {
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--primary-soft);
+		margin-bottom: 0.45rem;
+	}
+
+	.exp-roles {
+		font-size: 0.92rem;
+		color: var(--accent-hot);
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	.practice h3,
+	.exp-body h3 {
+		font-family: var(--font-display);
+		font-size: clamp(1.15rem, 2vw, 1.35rem);
+		font-weight: 700;
+		color: var(--ink);
+		margin-bottom: 0.55rem;
+	}
+
+	.exp-body h3 a,
+	.exp-note a {
+		color: var(--ink);
+		text-decoration: none;
+		border-bottom: 1px solid var(--accent);
+	}
+
+	.exp-body h3 a:hover,
+	.exp-note a:hover {
+		color: var(--accent-hot);
+	}
+
+	.practice-body p,
+	.exp-body p {
+		color: var(--ink-muted);
+		max-width: 42rem;
+	}
+
+	.exp-outcome {
+		margin-top: 0.75rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--primary-soft);
+	}
+
+	.exp-note {
+		margin-top: 1rem;
+		padding-left: 1rem;
+		border-left: 2px solid var(--accent);
+		font-size: 0.98rem;
+	}
+
+	.exp-note-label {
+		display: block;
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--primary-soft);
+		margin-bottom: 0.2rem;
+	}
+
 	.skills-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
@@ -525,7 +756,7 @@ import profile from '../assets/todd-profile.jpg';
 	}
 
 	@media (max-width: 720px) {
-		nav a:not(:last-child) {
+		nav a:not(:nth-last-child(-n+2)) {
 			display: none;
 		}
 
@@ -535,6 +766,17 @@ import profile from '../assets/todd-profile.jpg';
 
 		.biz {
 			margin-top: 0.5rem;
+		}
+
+		.practice,
+		.exp-item {
+			grid-template-columns: 1fr;
+			gap: 0.65rem;
+			padding-left: 1.15rem;
+		}
+
+		.exp-item::before {
+			top: 1.85rem;
 		}
 	}
 </style>
